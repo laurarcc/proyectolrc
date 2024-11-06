@@ -56,11 +56,13 @@ function Login() {
 
     return (
         <>
-            <Container>
-                <Box component='form' onSubmit={handleSubmit}>
-                    <Typography variant='h4' sx={{mt: 2, mb: 2}}>Sistema de acceso</Typography>
-                    <LockIcon></LockIcon>
-                    <Grid container spacing={2}>
+            <Container role={'main'} sx = {{display:'flex', justifyContent:'center', alignItems:'center', minHeight:'80vh'}}>
+                <Box component='form' onSubmit={handleSubmit} sx={{width:'100%', maxWidth:'100%'}}>
+                    <Grid container spacing={2} sx = {{justifyContent:'center', alignItems:'center'}}>
+                        <Grid size={{md: 8, xs: 12, lg: 8}}>
+                            <Typography variant='h4' >Sistema de acceso</Typography>
+                            <LockIcon></LockIcon>
+                        </Grid>
                         <Grid size={{md: 8, xs: 8, lg: 8}}>
                             <TextField
                                 required
