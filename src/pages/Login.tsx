@@ -6,7 +6,12 @@ import CheckIcon from '@mui/icons-material/Check';
 import LockIcon from '@mui/icons-material/Lock';
 import {useNavigate} from 'react-router-dom';
 import * as React from "react";
+
+import {useDispatch} from 'react-redux'
+import { authActions } from "../store/authSlice.ts";
+
 function Login() {
+    const dispatch = useDispatch()
     const [data, setData] = useState({user: '', password: '', open: ''});
     const navigate = useNavigate();
     const bduser = 'laura';
@@ -20,6 +25,10 @@ function Login() {
                 open: 'success'
             })
             navigate('/Home');
+            dispatch(authActions.login({
+                name:data.user,
+                rol:'administrador'
+            }))
         }else{
             setData({
                 ...data,

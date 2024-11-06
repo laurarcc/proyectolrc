@@ -6,6 +6,8 @@ import "./App.css";
 import CssBaseline from '@mui/material/CssBaseline'
 import {createTheme} from "@mui/material";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
 const customTheme = createTheme ({
     palette: {
@@ -41,7 +43,9 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider theme={customTheme}>
         <CssBaseline/>
-        <App/>
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </ThemeProvider>
     </StrictMode>
 )
